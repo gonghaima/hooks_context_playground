@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { ThemeProvider } from "./providers/theme";
 import { ThemedButton } from "./components/ThemedButton";
+import IncreaseCounter from "./components/IncreaseCounter";
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               Learn React
             </a>
             <ThemedButton />
+            <IncreaseCounter initialCount={5} />
           </header>
         </div>
       </ThemeProvider>
