@@ -1,6 +1,6 @@
 <h1 align="center"> State Management with React Hooks and Context API in 10 lines of code! </h1>
 
-[![Build Status](https://secure.travis-ci.org/gotwarlost/istanbul.svg?branch=master)](http://travis-ci.org/gotwarlost/istanbul)[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/gonghaima) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](http://github.com/gonghaima) [![License](https://img.shields.io/badge/License-CC-blue.svg)](https://en.wikipedia.org/wiki/Creative_Commons_license)
+[![Build Status](https://secure.travis-ci.org/gotwarlost/istanbul.svg?branch=master)](http://travis-ci.org/gotwarlost/istanbul)[![Coverage Status](https://img.shields.io/coveralls/gotwarlost/istanbul.svg)](https://coveralls.io/r/gotwarlost/istanbul?branch=master)[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/gonghaima) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](http://github.com/gonghaima) [![License](https://img.shields.io/badge/License-CC-blue.svg)](https://en.wikipedia.org/wiki/Creative_Commons_license)
 
 <h3 align="center">Ultimate and super simple Redux alternative for your App.</h3>
 
