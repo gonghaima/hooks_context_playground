@@ -25,23 +25,23 @@ The usage is pretty straightforward. Provider provides the value:
 
 import React from 'react';
 const ThemeContext = React.createContext(
-  /* optional default value */
+/_ optional default value _/
 );
 const App = props => (
-  <ThemeContext.Provider value={{ primaryColor: green }}>
-    {props.children}
-  </ThemeContext.Provider>
+<ThemeContext.Provider value={{ primaryColor: green }}>
+{props.children}
+</ThemeContext.Provider>
 );
 And Consumer allows to access the value (theme in this case) in any component of your App:
 
 const ThemedButton = () => (
-  <ThemeContext.Consumer>
-    {value => (
-      <Button primaryColor={{ value.primaryColor }}>
-        I'm button using context!
-      </Button>
-    )}
-  </ThemeContext.Consumer>
+<ThemeContext.Consumer>
+{value => (
+<Button primaryColor={{ value.primaryColor }}>
+I'm button using context!
+</Button>
+)}
+</ThemeContext.Consumer>
 );
 There are other ways how to access context value like contextType in class based components as you will see below. For all the implementation details please check the official docs if you are interested.
 
@@ -54,12 +54,12 @@ Hooks allows you to use state, context and other React features inside functiona
 
 import React, { useState } from 'React';
 function Increment({ initialCount }) {
-  const [count, setCount] = useState(initialCount);
-  return (
-    <button onClick={() => setCount(prevCount => prevCount + 1)}>
-      Increment: {count}
-    </button>
-  );
+const [count, setCount] = useState(initialCount);
+return (
+<button onClick={() => setCount(prevCount => prevCount + 1)}>
+Increment: {count}
+</button>
+);
 }
 Quite easy, right?
 
@@ -67,22 +67,22 @@ There is another very useful hook called useReducer which is kind of more advanc
 
 import React, { useReducer } from 'React';
 const reducer = (state, action) => {
-  switch (action.type) {
-    case 'increment':
-      return { count: state.count + 1 };
-      
-    default:
-      return state;
-  }
+switch (action.type) {
+case 'increment':
+return { count: state.count + 1 };
+  
+ default:
+return state;
+}
 };
 function Increment({ initialCount }) {
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
-  return (
-    <button onClick={() => dispatch({ type: 'increment'})}>
-      Increment: {state.count}
-    </button>
-  );
-} 
+const [state, dispatch] = useReducer(reducer, { count: 0 });
+return (
+<button onClick={() => dispatch({ type: 'increment'})}>
+Increment: {state.count}
+</button>
+);
+}
 First parameter of useReducer hook is reducer function which is basically an equivalent to Redux’s reducer. Second parameter is an initial state.
 
 Hook returns [state, dispatch] array where state is current state and dispatch is similar to dispatch function in Redux with action (in our case { type: 'increment' }) passed as a parameter.
@@ -102,9 +102,9 @@ I would like to introduce you my 10 lines of code:
 import React, {createContext, useContext, useReducer} from 'react';
 export const StateContext = createContext();
 export const StateProvider = ({reducer, initialState, children}) =>(
-  <StateContext.Provider value={useReducer(reducer, initialState)}>
-    {children}
-  </StateContext.Provider>
+<StateContext.Provider value={useReducer(reducer, initialState)}>
+{children}
+</StateContext.Provider>
 );
 export const useStateValue = () => useContext(StateContext);
 Let’s explain what is going on here.
@@ -119,13 +119,14 @@ So we have our minimalistic state management ready! 🎉 But how do we use it?
 Enhance your app with global state
 In order to use this simple state management in your app you just need to wrap it with our StateProvider created above and pass reducer and initialState like this:
 
+````
 import { StateProvider } from '../state';
 
 const App = () => {
   const initialState = {
     theme: { primary: 'green' }
   };
-  
+
   const reducer = (state, action) => {
     switch (action.type) {
       case 'changeTheme':
@@ -133,18 +134,18 @@ const App = () => {
           ...state,
           theme: action.newTheme
         };
-        
+
       default:
         return state;
     }
   };
-  
+
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
         // App content ...
     </StateProvider>
   );
-}
+}```
 Then use and update the state inside your app
 Now you have unlimited access to your global state in every component of your app:
 
@@ -210,3 +211,4 @@ const mainReducer = ({ user, basket }, action) => {
     basket: basketReducer(basket, action)
   };
 });
+````
