@@ -6,8 +6,15 @@ import { ThemedButton } from "./components/ThemedButton";
 import IncreaseCounter from "./components/useStateIncreaseCounter";
 import ReducerIncreaseCounter from "./components/useReducerIncreaseCounter";
 
+import { StateProvider } from "./providers/store";
+import reducers from "./reducers";
+import GlobalStateChangeName from "./components/useGlobalStateChangeName";
+
 class App extends Component {
   render() {
+    const initialState = {
+      name: "Steven"
+    };
     return (
       <ThemeProvider>
         <div className="App">
@@ -27,6 +34,10 @@ class App extends Component {
             <ThemedButton />
             <IncreaseCounter initialCount={5} />
             <ReducerIncreaseCounter initialCount={2} />
+            <StateProvider initialState={initialState} reducer={reducers}>
+              // App content...
+              <GlobalStateChangeName />
+            </StateProvider>
           </header>
         </div>
       </ThemeProvider>
