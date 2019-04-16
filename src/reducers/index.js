@@ -1,8 +1,5 @@
-export default (state, action) => {
-  switch (action.type) {
-    case "changeName":
-      return { ...state, name: action.newName };
-    default:
-      return state;
-  }
-};
+import userReducer from "./user";
+
+export const reducers = ({ user }, action) => ({
+  user: userReducer(user, action)
+});
