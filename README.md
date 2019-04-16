@@ -1,5 +1,7 @@
-State Management with React Hooks and Context API in 10 lines of code!
-Ultimate and super simple Redux alternative for your App.
+# H1 State Management with React Hooks and Context API in 10 lines of code!
+
+# H3 Ultimate and super simple Redux alternative for your App.
+
 Go to the profile of Luke Hall
 Luke Hall
 Jan 16
@@ -13,7 +15,9 @@ Don’t take me wrong. Redux is a great library, it served it’s role for a lon
 
 You don’t need to install any external library for state management anymore. Everything you need is available in React. And it’s damn easy to use.
 
+<p align="center">
 State management in 10 lines of code?
+</p>
 Yes, you are reading it right. Just ten lines! But let’s take a look at two new React concepts first. Then I will introduce you the most simple state management ever.
 
 React Context API
@@ -23,17 +27,19 @@ Since React 16.3.0 it’s officially stable and ready to use in production.
 
 The usage is pretty straightforward. Provider provides the value:
 
-import React from 'react';
-const ThemeContext = React.createContext(
-/_ optional default value _/
-);
+```javascript
+import React from "react";
+const ThemeContext = React.createContext(/_ optional default value _/);
 const App = props => (
-<ThemeContext.Provider value={{ primaryColor: green }}>
-{props.children}
-</ThemeContext.Provider>
+  <ThemeContext.Provider value={{ primaryColor: green }}>
+    {props.children}
+  </ThemeContext.Provider>
 );
+```
+
 And Consumer allows to access the value (theme in this case) in any component of your App:
 
+```javascript
 const ThemedButton = () => (
 <ThemeContext.Consumer>
 {value => (
@@ -43,6 +49,8 @@ I'm button using context!
 )}
 </ThemeContext.Consumer>
 );
+```
+
 There are other ways how to access context value like contextType in class based components as you will see below. For all the implementation details please check the official docs if you are interested.
 
 Later I will show you more simple way how to access state, but first let’s take a look at another new React concept.
@@ -52,37 +60,43 @@ Update: Hooks are now stable since version React 16.8.0.
 
 Hooks allows you to use state, context and other React features inside functional components (i.e. without writing classes).
 
-import React, { useState } from 'React';
+```javascript
+import React, { useState } from "React";
 function Increment({ initialCount }) {
-const [count, setCount] = useState(initialCount);
-return (
-<button onClick={() => setCount(prevCount => prevCount + 1)}>
-Increment: {count}
-</button>
-);
+  const [count, setCount] = useState(initialCount);
+  return (
+    <button onClick={() => setCount(prevCount => prevCount + 1)}>
+      Increment: {count}
+    </button>
+  );
 }
+```
+
 Quite easy, right?
 
 There is another very useful hook called useReducer which is kind of more advanced state hook:
 
-import React, { useReducer } from 'React';
+```javascript
+import React, { useReducer } from "React";
 const reducer = (state, action) => {
-switch (action.type) {
-case 'increment':
-return { count: state.count + 1 };
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
 
-default:
-return state;
-}
+    default:
+      return state;
+  }
 };
 function Increment({ initialCount }) {
-const [state, dispatch] = useReducer(reducer, { count: 0 });
-return (
-<button onClick={() => dispatch({ type: 'increment'})}>
-Increment: {state.count}
-</button>
-);
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  return (
+    <button onClick={() => dispatch({ type: "increment" })}>
+      Increment: {state.count}
+    </button>
+  );
 }
+```
+
 First parameter of useReducer hook is reducer function which is basically an equivalent to Redux’s reducer. Second parameter is an initial state.
 
 Hook returns [state, dispatch] array where state is current state and dispatch is similar to dispatch function in Redux with action (in our case { type: 'increment' }) passed as a parameter.
@@ -99,14 +113,17 @@ This is beautiful example of synergy. Using Context API and Hooks together gives
 
 I would like to introduce you my 10 lines of code:
 
-import React, {createContext, useContext, useReducer} from 'react';
+```javascript
+import React, { createContext, useContext, useReducer } from "react";
 export const StateContext = createContext();
-export const StateProvider = ({reducer, initialState, children}) =>(
-<StateContext.Provider value={useReducer(reducer, initialState)}>
-{children}
-</StateContext.Provider>
+export const StateProvider = ({ reducer, initialState, children }) => (
+  <StateContext.Provider value={useReducer(reducer, initialState)}>
+    {children}
+  </StateContext.Provider>
 );
 export const useStateValue = () => useContext(StateContext);
+```
+
 Let’s explain what is going on here.
 
 First we createContext and assign it to StateContext object containing Provider and Consumer. We will need just a Provider here.
@@ -145,11 +162,13 @@ const App = () => {
         // App content ...
     </StateProvider>
   );
-}```
+}
+`
+
 Then use and update the state inside your app
 Now you have unlimited access to your global state in every component of your app:
 
-```javascript
+```
 import { useStateValue } from './state';
 
 const ThemedButton = () => {
@@ -170,7 +189,7 @@ The only limitation is that this useStateValue function must be called inside fu
 
 If you would like to access state in class based component, you have two options. Either use the Consumer as mention above in the React Context API section or less verbose contextType feature like this:
 
-```javascript
+```
 import React, { Component } from 'react';
 import { StateContext } from './state';
 class ThemedButton extends Component {
@@ -195,7 +214,7 @@ And that’s it! Isn’t it amazing? You really don’t need to use Redux or any
 But what about splitting reducer to more then one?
 There is an easy answer. For more complex applications it may be handy to have multiple reducers. Well, the reducer (the one passed as a prop to StateProvider) is completely in your hands. Personally I would go this way:
 
-```javascript
+```
 import userReducer from './reducers/user';
 import basketReducer from './reducers/basket';
 const mainReducer = ({ user, basket }, action) => ({
