@@ -212,7 +212,7 @@ class ThemedButton extends Component {
 
 And that’s it! Isn’t it amazing? You really don’t need to use Redux or any other external state library anymore. Everything you need is inside React.
 
-`###But what about splitting reducer to more then one?`
+`<h4><i><b>But what about splitting reducer to more then one?</b></i></h4>`
 There is an easy answer. For more complex applications it may be handy to have multiple reducers. Well, the reducer (the one passed as a prop to StateProvider) is completely in your hands. Personally I would go this way:
 
 ```javascript
@@ -224,7 +224,7 @@ const mainReducer = ({ user, basket }, action) => ({
 });
 ````
 
-<h3 align="center">And what about middleware?</h3>
+<h4 align="center">And what about middleware?</h4>
 Technically the middleware is a function called just before the dispatched action reaches the reducer. I would do something like this:`
 
 ```javascript
