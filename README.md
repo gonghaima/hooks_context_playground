@@ -1,6 +1,6 @@
 # H1 State Management with React Hooks and Context API in 10 lines of code!
 
-# H3 Ultimate and super simple Redux alternative for your App.
+### H3 Ultimate and super simple Redux alternative for your App.
 
 Go to the profile of Luke Hall
 Luke Hall
@@ -16,7 +16,7 @@ Don’t take me wrong. Redux is a great library, it served it’s role for a lon
 You don’t need to install any external library for state management anymore. Everything you need is available in React. And it’s damn easy to use.
 
 <p align="center">
-State management in 10 lines of code?
+**State management in 10 lines of code?**
 </p>
 Yes, you are reading it right. Just ten lines! But let’s take a look at two new React concepts first. Then I will introduce you the most simple state management ever.
 
