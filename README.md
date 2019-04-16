@@ -119,7 +119,7 @@ So we have our minimalistic state management ready! 🎉 But how do we use it?
 Enhance your app with global state
 In order to use this simple state management in your app you just need to wrap it with our StateProvider created above and pass reducer and initialState like this:
 
-````
+````javascript
 import { StateProvider } from '../state';
 
 const App = () => {
@@ -149,7 +149,8 @@ const App = () => {
 Then use and update the state inside your app
 Now you have unlimited access to your global state in every component of your app:
 
-```import { useStateValue } from './state';
+```javascript
+import { useStateValue } from './state';
 
 const ThemedButton = () => {
   const [{ theme }, dispatch] = useStateValue();
@@ -169,7 +170,8 @@ The only limitation is that this useStateValue function must be called inside fu
 
 If you would like to access state in class based component, you have two options. Either use the Consumer as mention above in the React Context API section or less verbose contextType feature like this:
 
-```import React, { Component } from 'react';
+```javascript
+import React, { Component } from 'react';
 import { StateContext } from './state';
 class ThemedButton extends Component {
   static contextType = StateContext;
@@ -193,6 +195,7 @@ And that’s it! Isn’t it amazing? You really don’t need to use Redux or any
 But what about splitting reducer to more then one?
 There is an easy answer. For more complex applications it may be handy to have multiple reducers. Well, the reducer (the one passed as a prop to StateProvider) is completely in your hands. Personally I would go this way:
 
+```javascript
 import userReducer from './reducers/user';
 import basketReducer from './reducers/basket';
 const mainReducer = ({ user, basket }, action) => ({
