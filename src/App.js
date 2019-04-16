@@ -4,6 +4,7 @@ import "./App.css";
 import { ThemeProvider } from "./providers/theme";
 import { ThemedButton } from "./components/ThemedButton";
 import IncreaseCounter from "./components/useStateIncreaseCounter";
+import ReducerIncreaseCounter from "./components/useReducerIncreaseCounter";
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
             </a>
             <ThemedButton />
             <IncreaseCounter initialCount={5} />
+            <ReducerIncreaseCounter initialCount={2} />
           </header>
         </div>
       </ThemeProvider>
