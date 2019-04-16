@@ -1,5 +1,7 @@
 <h1 align="center"> State Management with React Hooks and Context API in 10 lines of code! </h1>
 
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/gonghaima) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](http://www.matthiaszarzecki.com) [![License](https://img.shields.io/badge/License-CC-blue.svg)](https://en.wikipedia.org/wiki/Creative_Commons_license) [![Twitter Follow]
+
 <h3 align="center">Ultimate and super simple Redux alternative for your App.</h3>
 
 Go to the profile of Luke Hall
