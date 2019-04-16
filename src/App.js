@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { ThemeProvider } from "./providers/theme";
 import { ThemedButton } from "./components/ThemedButton";
-import IncreaseCounter from "./components/IncreaseCounter";
+import IncreaseCounter from "./components/useStateIncreaseCounter";
 
 class App extends Component {
   render() {
