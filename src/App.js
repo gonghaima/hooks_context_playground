@@ -13,7 +13,8 @@ import GlobalStateChangeName from "./components/useGlobalStateChangeName";
 class App extends Component {
   render() {
     const initialState = {
-      user: { name: "Steven" }
+      user: { name: "Steven" },
+      basket: [{ name: "apple", count: 1 }]
     };
     return (
       <ThemeProvider>
