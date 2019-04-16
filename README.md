@@ -168,7 +168,7 @@ const App = () => {
 Then use and update the state inside your app
 Now you have unlimited access to your global state in every component of your app:
 
-```
+```javascript
 import { useStateValue } from './state';
 
 const ThemedButton = () => {
@@ -189,7 +189,7 @@ The only limitation is that this useStateValue function must be called inside fu
 
 If you would like to access state in class based component, you have two options. Either use the Consumer as mention above in the React Context API section or less verbose contextType feature like this:
 
-```
+```javascript
 import React, { Component } from 'react';
 import { StateContext } from './state';
 class ThemedButton extends Component {
@@ -209,21 +209,25 @@ class ThemedButton extends Component {
     );
   }
 }```
+
 And that’s it! Isn’t it amazing? You really don’t need to use Redux or any other external state library anymore. Everything you need is inside React.
 
-But what about splitting reducer to more then one?
+`###But what about splitting reducer to more then one?`
 There is an easy answer. For more complex applications it may be handy to have multiple reducers. Well, the reducer (the one passed as a prop to StateProvider) is completely in your hands. Personally I would go this way:
 
-```
+```javascript
 import userReducer from './reducers/user';
 import basketReducer from './reducers/basket';
 const mainReducer = ({ user, basket }, action) => ({
   user: userReducer(user, action),
   basket: basketReducer(basket, action)
 });
-And what about middleware?
-Technically the middleware is a function called just before the dispatched action reaches the reducer. I would do something like this:
+````
 
+<h3 align="center">And what about middleware?</h3>
+Technically the middleware is a function called just before the dispatched action reaches the reducer. I would do something like this:`
+
+```javascript
 import userReducer from './reducers/user';
 import basketReducer from './reducers/basket';
 const mainReducer = ({ user, basket }, action) => {
@@ -233,4 +237,4 @@ const mainReducer = ({ user, basket }, action) => {
     basket: basketReducer(basket, action)
   };
 });
-````
+```
