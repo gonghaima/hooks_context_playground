@@ -1,6 +1,6 @@
-# H1 State Management with React Hooks and Context API in 10 lines of code!
+<h1 align="center"> State Management with React Hooks and Context API in 10 lines of code! </h1>
 
-### H3 Ultimate and super simple Redux alternative for your App.
+<h3 align="center">Ultimate and super simple Redux alternative for your App.</h3>
 
 Go to the profile of Luke Hall
 Luke Hall
