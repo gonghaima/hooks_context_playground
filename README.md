@@ -1,6 +1,8 @@
 <h1 align="center"> State Management with React Hooks and Context API in 10 lines of code! </h1>
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/gonghaima) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](http://github.com/gonghaima) [![License](https://img.shields.io/badge/License-CC-blue.svg)](https://en.wikipedia.org/wiki/Creative_Commons_license)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/gonghaima) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](http://github.com/gonghaima) [![License](https://img.shields.io/badge/License-CC-blue.svg)](https://en.wikipedia.org/wiki/Creative_Commons_license)| Build | Statements | Branches | Functions | Lines | Built By | We Love |
+| ------ | ------ | ------- | ------- | ------ | -------| ------- |
+| ![BuildStatus](#buildstatus#) | ![Statements](#statements# "Make me better!") | ![Branches](#branches# "Make me better!") | ![Functions](#functions# "Make me better!") | ![Lines](#lines# "Make me better!") | ![BuiltBy](https://img.shields.io/badge/TypeScript-Lovers-black.svg "img.shields.io") | ![ForTheBadge](https://img.shields.io/badge/Using-Badges-red.svg "ForTheBadge")
 
 <h3 align="center">Ultimate and super simple Redux alternative for your App.</h3>
 
