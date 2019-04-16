@@ -70,8 +70,8 @@ const reducer = (state, action) => {
 switch (action.type) {
 case 'increment':
 return { count: state.count + 1 };
-  
- default:
+
+default:
 return state;
 }
 };
@@ -149,7 +149,7 @@ const App = () => {
 Then use and update the state inside your app
 Now you have unlimited access to your global state in every component of your app:
 
-import { useStateValue } from './state';
+```import { useStateValue } from './state';
 
 const ThemedButton = () => {
   const [{ theme }, dispatch] = useStateValue();
@@ -164,12 +164,12 @@ const ThemedButton = () => {
       Make me blue!
     </Button>
   );
-}
+}```
 The only limitation is that this useStateValue function must be called inside functional component. Because it calls a useContext hook inside.
 
 If you would like to access state in class based component, you have two options. Either use the Consumer as mention above in the React Context API section or less verbose contextType feature like this:
 
-import React, { Component } from 'react';
+```import React, { Component } from 'react';
 import { StateContext } from './state';
 class ThemedButton extends Component {
   static contextType = StateContext;
@@ -187,7 +187,7 @@ class ThemedButton extends Component {
       </Button>
     );
   }
-}
+}```
 And that’s it! Isn’t it amazing? You really don’t need to use Redux or any other external state library anymore. Everything you need is inside React.
 
 But what about splitting reducer to more then one?
